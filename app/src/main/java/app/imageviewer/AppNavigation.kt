@@ -22,15 +22,17 @@ fun AppNavigation() {
 	) {
 		composable(route = "folder_list") {
 			FolderList(
-				onFolderClick = { folderId ->
-					navController.navigate("folder_content/$folderId")
+				onFolderClick = { folderId, folderName ->
+					navController.navigate("folder_content/$folderId/$folderName")
 				}
 			)
 		}
-		composable(route = "folder_content/{folderId}") {
+		composable(route = "folder_content/{folderId}/{folderName}") {
 			val folderId = it.arguments!!.getString("folderId")!!.toLong()
+			val folderName = it.arguments!!.getString("folderName")!!
 			FolderContent(
 				folderId = folderId,
+				folderName = folderName,
 				onImageClick = { imageId ->
 					navController.navigate("fullscreen/$imageId/$folderId")
 				}

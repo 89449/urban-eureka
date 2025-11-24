@@ -27,6 +27,7 @@ import app.imageviewer.data.Query
 @Composable
 fun FolderContent(
 	folderId: Long,
+	folderName: String,
 	onImageClick: (Long) -> Unit
 ) {
 	val context = LocalContext.current
@@ -39,7 +40,7 @@ fun FolderContent(
 	Scaffold(
 		topBar = {
 			TopAppBar(
-				title = { Text("Text") }
+				title = { Text(folderName) }
 			)
 		}
 	) {

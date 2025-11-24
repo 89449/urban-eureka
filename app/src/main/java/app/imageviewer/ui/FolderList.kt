@@ -22,7 +22,7 @@ import app.imageviewer.data.Query
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FolderList(
-	onFolderClick: (Long) -> Unit
+	onFolderClick: (Long, String) -> Unit
 ) {
 	val context = LocalContext.current
 	var folders by remember { mutableStateOf<List<Folder>>(emptyList()) }
@@ -46,7 +46,7 @@ fun FolderList(
 					headlineContent = { Text(it.name) },
 					modifier = Modifier
 						.clickable {
-							onFolderClick(it.id)
+							onFolderClick(it.id, it.name)
 						}
 				)
 			}
