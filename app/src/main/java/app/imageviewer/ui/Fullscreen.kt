@@ -50,7 +50,7 @@ fun Fullscreen(
 	        
 	        HorizontalPager(state = pagerState) { page ->
 	        	val item = images[page]
-	        	val zoomState = rememberZoomState()
+	        	val zoomState = rememberZoomState(maxScale = 15f)
 	        	
 	        	LaunchedEffect(zoomState.scale) {
     	            isToolbarVisible = zoomState.scale <= 1.0f
