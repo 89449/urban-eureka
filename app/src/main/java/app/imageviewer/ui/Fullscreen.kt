@@ -51,7 +51,7 @@ fun Fullscreen(
 	        HorizontalPager(state = pagerState) { page ->
 	        	val item = images[page]
 	        	val zoomState = rememberZoomState(maxScale = 15f)
-	        	val wasZoomed by remember { mutableStateOf(false) }
+	        	var wasZoomed by remember { mutableStateOf(false) }
 	        	
 	        	LaunchedEffect(zoomState.scale) {
     	            if(zoomState.scale > 1.0f) {
